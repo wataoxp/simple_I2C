@@ -31,14 +31,14 @@ uint32_t GetTick(void)
 /* I2C ISR */
 void I2C1_IRQHandler(void)
 {
-	if(I2C_Recive_IT(I2C1) != 0)
+	if(I2C_Slave_IT(I2C1) != 0)
 	{
 		OverRunHandler();
 	}
 }
 void I2C2_IRQHandler(void)
 {
-	if(I2C_Transmit_IT(I2C2) != 0)
+	if(I2C_Master_IT(I2C2) != 0)
 	{
 		OverRunHandler();
 	}

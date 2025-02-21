@@ -10,7 +10,7 @@ static void I2C2_Config(void);
 
 int main(void)
 {
-	uint8_t sendbuf[] = {0,1,2,3,4,5,6,7,8,9,};
+	uint8_t sendbuf[10] = {0,1,2,3,4,5,6,7,8,9,};
 	uint8_t recvbuf[10];
 	int8_t size;
 	I2C_IsrTypedef *pStatus;
@@ -27,7 +27,9 @@ int main(void)
 
 	I2C_TransmitMode(I2C2, TX_ISR);
 	I2C_ISR_Master_Transmit(I2C2, (0x01 << 1), sendbuf, sizeof(sendbuf));
-	//I2C_Master_Transmit(I2C2, (0x01 << 1), sendbuf, sizeof(sendbuf));
+//	I2C_Master_Transmit(I2C2, (0x01 << 1), sendbuf, sizeof(sendbuf));
+
+//	I2C_Mem_Read(I2C2, (0x01 << 1), sendbuf, 0xff, I2C_MEMADD_SIZE_8BIT, sizeof(sendbuf));
 
 	Delay(500);
 	pStatus = I2C_GetBufferAddress();

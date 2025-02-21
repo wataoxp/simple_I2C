@@ -101,10 +101,10 @@ void I2C_ISR_Mem_Write(I2C_TypeDef *I2Cx,uint8_t address,uint8_t *data,uint16_t 
 void I2C_ISR_Master_Transmit(I2C_TypeDef *I2Cx,uint8_t address,uint8_t *data,uint8_t length);
 
 //ISR TX
-uint8_t I2C_Transmit_IT(I2C_TypeDef *I2Cx);
+uint8_t I2C_Master_IT(I2C_TypeDef *I2Cx);
 
-//ISR RX
-uint8_t I2C_Recive_IT(I2C_TypeDef *I2Cx);
+//ISR Slave
+uint8_t I2C_Slave_IT(I2C_TypeDef *I2Cx);
 
 //ISR DataBufferGet
 I2C_IsrTypedef* I2C_GetBufferAddress(void);
