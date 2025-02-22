@@ -36,9 +36,10 @@ int main(void)
 
 	memset(recvbuf,0xff,sizeof(recvbuf));
 
-	for(size = (pStatus->BufSize - 1);size >= 0;size--)
+	uint8_t i = 0;
+	for(size = (pStatus->BufSize);size >= 0;size--)
 	{
-		recvbuf[size] = pStatus->BufAdd[size];
+		recvbuf[i++] = pStatus->BufAdd[size-1];
 	}
 	memset(pStatus->BufAdd,0,pStatus->BufSize);		//SlaveBufferClear
 
